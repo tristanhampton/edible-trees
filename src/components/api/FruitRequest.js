@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { GoogleMap, InfoWindow, MarkerF, useJsApiLoader, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, InfoWindow, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 
 const FruitRequest = () => {
   const [data, setData] = useState(null);
@@ -19,7 +19,7 @@ const FruitRequest = () => {
 
   const { mapIsLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: '',
+    googleMapsApiKey: process.env.MAPS_API_KEY,
   });
 
   if (isLoading && !mapIsLoaded) {
