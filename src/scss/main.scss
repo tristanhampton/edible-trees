@@ -1,11 +1,8 @@
 @import 'global/header';
+@import 'components/maps';
 
-.leaflet-container {
-  width: 100%;
+.App {
   height: 100vh;
-}
-
-.leaflet-div-icon {
-  background: transparent;
-  border: none;
+  display: flex;
+  flex-direction: column;
 }
