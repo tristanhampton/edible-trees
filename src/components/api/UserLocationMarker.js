@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Marker, useMap, useMapEvent } from "react-leaflet"
 import { iconPerson } from "./Icon";
 
@@ -6,8 +6,10 @@ export default function UserLocationMarker() {
   const [position, setPosition] = useState(null)
   const map = useMap();
 
-  // locate user
-  map.locate();
+  // locate user, but only once
+  useEffect(() => {
+    map.locate();
+  }, []);
 
   // when user is found, center on them
   useMapEvent({
