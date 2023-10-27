@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { GoogleMap, InfoWindow, Marker, useJsApiLoader, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, InfoWindow, MarkerF, useJsApiLoader, useLoadScript } from "@react-google-maps/api";
 
 const FruitRequest = () => {
   const [data, setData] = useState(null);
@@ -41,14 +41,14 @@ const FruitRequest = () => {
         >
 
           {data.map((tree, index) => (
-            <Marker
-              key={index}
+            <MarkerF
+              key={index} 
               position={{lat: parseFloat(tree.latitude), lng: parseFloat(tree.longitude)}}
             >
               <InfoWindow position={{lat: parseFloat(tree.latitude), lng: parseFloat(tree.longitude)}}>
                 <h3>{tree.type_of_edible_fruit}</h3>
               </InfoWindow>
-            </Marker>
+            </MarkerF>
           ))}
         </GoogleMap>
       </div>
