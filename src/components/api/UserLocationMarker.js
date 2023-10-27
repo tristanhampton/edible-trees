@@ -7,19 +7,22 @@ export default function UserLocationMarker() {
   const [located, setLocated] = useState(false);
   const map = useMap();
   
-  // locate user, but only once
-  if (!located) {
-    map.locate();
-    setLocated(true);
-  }
+  // locate user
+  map.locate();
 
   // when user is found, center on them
   useMapEvent({
     locationfound(e) {
       setPosition(e.latlng)
-      map.flyTo(e.latlng, 14)
+
+      if (!located) {
+        map.flyTo(e.latlng, 14);
+        setLocated(true);
+      }
     },
-  })
+  });
+
+
 
   return position === null ? null : (
     <Marker position={position} icon={iconPerson} onClick={e => e.preventDefault()}/>
