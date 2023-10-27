@@ -1,4 +1,4 @@
-import FruitRequest from './components/api/FruitRequest';
+import FruitRequestLeaflet from './components/api/FruitRequestLeaflet';
 import Header from './components/includes/Header';
 import './scss/main.scss';
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <FruitRequest />
+      <FruitRequestLeaflet />
     </div>
   );
 }
