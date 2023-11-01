@@ -10,7 +10,7 @@ export default function UserLocationMarker() {
   // locate user
   map.locate();
 
-  // when user is found, center on them
+  // when user is found, center on them on load
   useMapEvent({
     locationfound(e) {
       setPosition(e.latlng)
