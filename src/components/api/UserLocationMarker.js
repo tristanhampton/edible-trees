@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Marker, useMap, useMapEvent } from "react-leaflet"
 import { iconPerson } from "./Icon";
 
@@ -6,9 +6,16 @@ export default function UserLocationMarker() {
   const [position, setPosition] = useState(null);
   const [located, setLocated] = useState(false);
   const map = useMap();
+  const timeout = 1000;
   
-  // locate user
-  map.locate();
+  // locate user once every timeout so it isn't constantly locating
+  useEffect(() => {
+    const interval = setInterval(() => {
+      map.locate();
+    }, timeout);
+
+    return () => clearInterval(interval); 
+  }, [map]);
 
   // when user is found, center on them on load
   useMapEvent({
@@ -22,9 +29,7 @@ export default function UserLocationMarker() {
     },
   });
 
-
-
   return position === null ? null : (
-    <Marker position={position} icon={iconPerson} onClick={e => e.preventDefault()}/>
+    <Marker position={position} icon={iconPerson}  onClick={e => e.preventDefault()}/>
   )
 }
