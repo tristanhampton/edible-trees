@@ -10,7 +10,7 @@ const iconPerson = new L.Icon({
     shadowSize: null,
     shadowAnchor: null,
     iconSize: new L.Point(20, 30),
-    className: 'leaflet-div-icon'
+    className: 'leaflet-user-icon'
 });
 
 export { iconPerson };

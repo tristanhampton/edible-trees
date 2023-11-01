@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Marker, useMap, useMapEvent } from "react-leaflet"
-import { iconPerson } from "./Icon";
+import { CircleIcon } from "./CircleIcon";
 
 export default function UserLocationMarker() {
   const [position, setPosition] = useState(null);
@@ -30,6 +30,6 @@ export default function UserLocationMarker() {
   });
 
   return position === null ? null : (
-    <Marker position={position} icon={iconPerson}  onClick={e => e.preventDefault()}/>
+    <Marker position={position} icon={CircleIcon} onClick={e => e.preventDefault()}/>
   )
 }
