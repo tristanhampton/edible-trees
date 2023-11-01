@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import UserLocationMarker from "./UserLocationMarker";
 import MarkerClusterGroup from '@changey/react-leaflet-markercluster'
+import { IconTree } from "./Icons";
 
 const FruitRequestLeaflet = () => {
   const [data, setData] = useState(null);
@@ -39,6 +40,7 @@ const FruitRequestLeaflet = () => {
             <Marker
               key={index}
               position={{ lat: parseFloat(tree.latitude), lng: parseFloat(tree.longitude) }}
+              icon={IconTree}
             >
               <Popup>
                 <h3>{tree.type_of_edible_fruit}</h3>
